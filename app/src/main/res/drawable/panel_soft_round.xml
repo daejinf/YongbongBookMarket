@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 검색창처럼 부드러운 면이 필요한 영역에 쓰는 배경이다. -->
+    <solid android:color="@color/surface_green" />
+    <corners android:radius="20dp" />
+</shape>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:contentPadding="12dp">
+
+    <!--
+        장바구니 한 줄은 상품 정보, 수량 조절, 삭제 기능을 같이 가진다.
+        CartAdapter가 CartItem 데이터를 받아 표지, 제목, 가격, 수량, 소계를 채운다.
+        수량 버튼과 삭제 버튼의 실제 동작은 CartActivity로 전달해서 처리한다.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- 장바구니에서도 어떤 책인지 바로 알 수 있도록 작은 표지를 왼쪽에 배치했다. -->
+        <CheckBox
+            android:id="@+id/cart_item_checkbox"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="8dp"
+            android:buttonTint="@color/campus_yellow"
+            android:checked="true" />
+
+        <ImageView
+            android:id="@+id/cart_book_cover"
+            android:layout_width="78dp"
+            android:layout_height="108dp"
+            android:background="@drawable/cover_shadow"
+            android:contentDescription="@string/cart_title"
+            android:padding="2dp"
+            android:scaleType="centerCrop" />
+
+        <!--
+            오른쪽 정보 영역이다.
+            제목, 가격, 수량, 소계를 세로로 보여 주어 주문 전 확인하기 쉽게 했다.
+        -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/cart_book_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/book_ink"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cart_book_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/book_gray"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/cart_book_subtotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/book_price"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!--
+                수량 조절 영역이다.
+                - 버튼, 현재 수량, + 버튼을 한 줄로 묶어 쇼핑몰 장바구니처럼 보이게 했다.
+            -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/pill_green"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp">
+
+                <TextView
+                    android:id="@+id/minus_button"
+                    android:layout_width="34dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/panel_soft_round"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/cart_quantity_minus"
+                    android:textColor="@color/jnu_green_dark"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/cart_book_quantity"
+                    android:layout_width="42dp"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/book_ink"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/plus_button"
+                    android:layout_width="34dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/panel_soft_round"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/cart_quantity_plus"
+                    android:textColor="@color/jnu_green_dark"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--
+            삭제 버튼이다.
+            누르면 바로 삭제하지 않고 Kotlin 코드에서 확인 Dialog를 띄운다.
+        -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/delete_button"
+            android:layout_width="58dp"
+            android:layout_height="42dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/cart_delete_button"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/campus_orange"
+            app:cornerRadius="14dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

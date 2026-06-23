@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="230dp"
+    android:background="@color/campus_yellow"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingTop="22dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="18dp">
+
+    <!--
+        Drawer 상단에 보이는 헤더 영역이다.
+        전남대 로고가 초록 배경에 묻히지 않도록 흰 배지를 뒤에 깔았다.
+        홈 화면과 같은 색상 계열을 사용해서 앱 전체 분위기를 맞췄다.
+    -->
+    <ImageView
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        android:src="@drawable/brand_app_icon" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="@string/app_name"
+        android:textColor="@color/book_ink"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:lineSpacingExtra="2dp"
+        android:maxLines="2"
+        android:text="@string/splash_subtitle"
+        android:textColor="@color/book_gray"
+        android:textSize="12sp" />
+</LinearLayout>

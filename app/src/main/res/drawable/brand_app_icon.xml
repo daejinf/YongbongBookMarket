@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- 스플래시와 앱 아이콘에 같이 쓰는 용봉문고 YB 로고다. -->
+    <path
+        android:fillColor="@color/brand_green"
+        android:pathData="M24,4 L96,4 Q116,4 116,24 L116,96 Q116,116 96,116 L24,116 Q4,116 4,96 L4,24 Q4,4 24,4 Z" />
+
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M20,30 L47,62 L47,101 L61,101 L61,62 L88,30 L71,30 L54,52 L37,30 Z" />
+
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M63,38 L82,38 C99,38 108,47 108,60 C108,69 103,76 95,80 C104,84 110,92 110,101 C110,113 100,120 82,120 L63,120 L63,108 L82,108 C91,108 96,104 96,98 C96,91 91,88 82,88 L63,88 L63,76 L80,76 C89,76 94,72 94,64 C94,56 89,51 80,51 L63,51 Z" />
+
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M40,15 C49,24 54,35 57,50"
+        android:strokeColor="@color/white"
+        android:strokeLineCap="round"
+        android:strokeWidth="4" />
+
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M51,14 C59,25 63,37 64,52"
+        android:strokeColor="@color/white"
+        android:strokeLineCap="round"
+        android:strokeWidth="4" />
+
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M30,20 C40,30 48,42 54,57"
+        android:strokeColor="@color/brand_signature_yellow"
+        android:strokeLineCap="round"
+        android:strokeWidth="4" />
+</vector>

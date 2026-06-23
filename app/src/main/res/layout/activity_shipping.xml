@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ShippingActivity">
+
+    <!--
+        배송정보 화면의 Toolbar이다.
+        장바구니에서 넘어온 뒤 다시 돌아갈 수 있도록 뒤로가기 버튼을 표시한다.
+    -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="1dp"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        app:theme="@style/ToolbarIconColor"
+        app:titleTextColor="@color/book_ink" />
+
+    <!--
+        입력칸이 화면보다 길어질 수 있어 ScrollView로 감쌌다.
+        택배 배송에 꼭 필요한 이름, 연락처, 우편번호, 주소만 남겼다.
+        화면 설명이 복잡해지지 않도록 입력 항목을 최소한으로 구성했다.
+    -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/panel_soft_green"
+                android:padding="16dp"
+                android:text="@string/shipping_guide"
+                android:textColor="@color/book_ink"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/panel_card_modern"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <EditText
+                    android:id="@+id/name_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:hint="@string/shipping_name_hint"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/book_ink" />
+
+                <EditText
+                    android:id="@+id/phone_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/shipping_phone_hint"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="@color/book_ink" />
+
+                <EditText
+                    android:id="@+id/zip_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/shipping_zip_hint"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/book_ink" />
+
+                <EditText
+                    android:id="@+id/address_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/shipping_address_hint"
+                    android:inputType="textPostalAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/book_ink" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--
+        입력 완료 후 주문서 화면으로 이동하는 버튼이다.
+        Kotlin 코드에서 빈 칸 검사를 통과하면 Intent extra로 배송정보를 넘긴다.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:padding="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/shipping_next_button"
+            android:textColor="@color/book_ink"
+            android:textStyle="bold"
+            app:backgroundTint="@color/campus_yellow"
+            app:cornerRadius="18dp" />
+    </LinearLayout>
+</LinearLayout>

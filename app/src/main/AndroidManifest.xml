@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        AndroidManifest는 앱에 들어 있는 화면(Activity)을 등록하는 파일이다.
+        여기 등록되지 않은 Activity는 Intent로 실행할 수 없다.
+
+        화면은 Kotlin Activity로 구성했다.
+        앱 이름과 테마는 strings.xml, themes.xml에 분리했고, 시작 화면은 SplashActivity로 지정했다.
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/brand_app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/brand_app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.YongbongBookMarket">
+
+        <!--
+            주문서 화면이다.
+            배송정보 화면에서 Intent로 넘겨 준 이름, 연락처, 주소와
+            SharedPreferences에 저장된 장바구니 상품을 모아 최종 확인 화면처럼 보여 준다.
+        -->
+        <activity
+            android:name=".OrderActivity"
+            android:exported="false"
+            android:parentActivityName=".ShippingActivity" />
+
+        <!--
+            배송정보 입력 화면이다.
+            장바구니에서 주문하기 버튼을 누르면 이 화면으로 이동한다.
+            택배 쇼핑몰이라는 주제에 맞춰 이름, 연락처, 우편번호, 주소만 단순하게 입력받는다.
+        -->
+        <activity
+            android:name=".ShippingActivity"
+            android:exported="false"
+            android:parentActivityName=".CartActivity" />
+
+        <!--
+            장바구니 화면이다.
+            상품 상세 화면에서 담은 책 목록을 보여 주고, 수량 변경과 삭제를 처리한다.
+            저장은 CartRepository와 SharedPreferences를 사용한다.
+        -->
+        <activity
+            android:name=".CartActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!--
+            간단 로그인 화면이다.
+            실제 서버 인증 대신, 주문 흐름에서 필요한 로그인 상태만 SharedPreferences에 저장한다.
+        -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:parentActivityName=".MyPageActivity" />
+
+        <!--
+            마이페이지 화면이다.
+            마지막 본 상품, 로그인 상태, 장바구니 요약을 보여 주는 보조 화면이다.
+            SharedPreferences 활용을 설명하기 좋은 화면으로 만들었다.
+        -->
+        <activity
+            android:name=".MyPageActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!--
+            상품 상세 화면이다.
+            상품 목록에서 선택한 책 정보를 Intent extra로 받아 표지, 제목, 가격,
+            출간일, 상태, 배송 안내까지 보여 준다.
+        -->
+        <activity
+            android:name=".BookDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".BookListActivity" />
+
+        <!--
+            상품 목록 화면이다.
+            RecyclerView와 CardView로 도서 상품을 보여 주고,
+            화면 상단 검색 입력창으로 간단 검색을 처리한다.
+        -->
+        <activity
+            android:name=".BookListActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!--
+            메인 화면이다.
+            스플래시 다음에 열리는 홈 화면이며 Toolbar, 옵션 메뉴, NavigationDrawer를 담당한다.
+            왼쪽 Drawer와 오른쪽 옵션 메뉴를 모두 연결해 주요 화면으로 이동할 수 있게 했다.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <!--
+            앱을 실행하면 가장 먼저 열리는 스플래시 화면이다.
+            intent-filter의 MAIN과 LAUNCHER가 붙어 있으므로 사용자가 앱 아이콘을 누르면
+            이 Activity가 시작되고, 2.5초 뒤 MainActivity로 이동한다.
+        -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

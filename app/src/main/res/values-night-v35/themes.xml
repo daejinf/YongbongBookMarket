@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        다크모드에서도 Android 15 이상 상태바 겹침을 막기 위해
+        values-v35와 같은 테마 설정을 유지한다.
+    -->
+    <style name="Theme.YongbongBookMarket" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/jnu_green</item>
+        <item name="colorPrimaryDark">@color/jnu_green_dark</item>
+        <item name="colorAccent">@color/jnu_green</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/jnu_green_dark</item>
+        <item name="android:navigationBarColor">@color/jnu_green_dark</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+</resources>

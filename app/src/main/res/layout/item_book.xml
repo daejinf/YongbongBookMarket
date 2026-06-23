@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_root"
+    android:layout_width="match_parent"
+    android:layout_height="380dp"
+    android:layout_margin="7dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:contentPadding="10dp">
+
+    <!--
+        카드 한 개가 하나의 도서 상품이다.
+        BookAdapter가 Book 데이터를 받아 이 XML의 TextView와 ImageView에 값을 넣는다.
+        사용자가 카드를 누르면 BookListActivity에서 Intent를 만들어 상세 화면으로 이동한다.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/panel_soft_green">
+
+            <!--
+                책 표지 영역이다.
+                상품 이미지가 카드 위쪽에서 가장 먼저 보이도록 크게 배치했다.
+                표지 이미지는 Book.imageResId 값으로 Kotlin 코드에서 바뀐다.
+            -->
+            <ImageView
+                android:id="@+id/book_cover"
+                android:layout_width="104dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/cover_shadow"
+                android:contentDescription="@string/book_detail_title"
+                android:elevation="3dp"
+                android:padding="2dp"
+                android:scaleType="centerCrop" />
+        </FrameLayout>
+
+        <!--
+            전공 분야 배지이다.
+            Kotlin, Android처럼 책의 분야를 빠르게 볼 수 있게 했다.
+        -->
+        <TextView
+            android:id="@+id/book_major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/pill_green"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/jnu_green_dark"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <!--
+            책 제목 영역이다.
+            긴 제목은 두 줄까지만 보여 주고, 넘치는 글자는 말줄임 처리한다.
+        -->
+        <TextView
+            android:id="@+id/book_title"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/book_ink"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!--
+            저자 이름 영역이다.
+            strings.xml의 형식 문자열을 사용해서 "저자" 문구를 코드 밖에서 관리한다.
+        -->
+        <TextView
+            android:id="@+id/book_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/book_gray"
+            android:textSize="12sp" />
+
+        <!--
+            중고 상태 안내 영역이다.
+            구매자가 책 상태를 먼저 확인할 수 있게 목록 카드에도 짧게 보여 준다.
+        -->
+        <TextView
+            android:id="@+id/book_condition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/book_muted"
+            android:textSize="12sp" />
+
+        <!--
+            정가 영역이다.
+            판매가와 구분되도록 작은 회색 글씨로 보여 준다.
+        -->
+        <TextView
+            android:id="@+id/book_original_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/book_gray"
+            android:textSize="12sp" />
+
+        <!--
+            실제 판매가 영역이다.
+            중고 쇼핑몰에서 가장 중요한 가격 정보라 강조 색과 굵은 글씨를 사용했다.
+        -->
+        <TextView
+            android:id="@+id/book_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/book_price"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

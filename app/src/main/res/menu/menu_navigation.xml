@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        메인 화면 왼쪽 NavigationDrawer에 표시되는 이동 메뉴이다.
+        홈 화면의 Toolbar 옵션 메뉴와 함께 쓰며, Drawer에서는 주요 화면을 한 번에 이동할 수 있게 했다.
+        각 item의 id는 MainActivity에서 when문으로 받아 화면 이동에 사용한다.
+    -->
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/icon_setting"
+        android:title="@string/menu_home" />
+
+    <!-- 자주 확인하는 도서 목록, 장바구니, 메모를 위쪽에 배치했다. -->
+    <item
+        android:id="@+id/menu_book_list"
+        android:icon="@drawable/icon_search"
+        android:title="@string/menu_book_list" />
+
+    <item
+        android:id="@+id/menu_cart"
+        android:icon="@drawable/icon_cart"
+        android:title="@string/menu_cart" />
+
+    <item
+        android:id="@+id/menu_memo"
+        android:icon="@drawable/icon_dialog"
+        android:title="@string/nav_feed" />
+
+    <item
+        android:id="@+id/menu_my_page"
+        android:icon="@drawable/icon_myinfo"
+        android:title="@string/menu_my_page" />
+
+    <!-- 아래 항목들은 외부 링크와 앱 안내처럼 보조 기능에 가깝다. -->
+    <item
+        android:id="@+id/menu_jnu_site"
+        android:icon="@drawable/icon_setting"
+        android:title="@string/menu_jnu_site" />
+
+    <item
+        android:id="@+id/menu_aladin_best"
+        android:icon="@drawable/icon_search"
+        android:title="@string/menu_aladin_best" />
+
+    <item
+        android:id="@+id/menu_app_info"
+        android:icon="@drawable/icon_dialog"
+        android:title="@string/menu_app_info" />
+
+</menu>

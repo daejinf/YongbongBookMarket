@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".BookListActivity">
+
+    <!-- 검색창, 추천어, 필터, 도서 카드를 위에서 아래로 배치한 목록 화면이다. -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:background="@color/white"
+        android:elevation="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        app:theme="@style/ToolbarIconColor"
+        app:titleTextColor="@color/book_ink">
+
+        <!-- 목록 화면의 검색창이다. EditText 입력은 BookListActivity에서 바로 필터링한다. -->
+        <LinearLayout
+            android:id="@+id/search_surface"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:background="@drawable/panel_soft_round"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="18dp"
+            android:paddingEnd="14dp">
+
+            <ImageView
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:alpha="0.6"
+                android:contentDescription="@string/nav_search"
+                android:src="@drawable/icon_search_soft" />
+
+            <EditText
+                android:id="@+id/search_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:hint="@string/book_list_search_surface"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/book_ink"
+                android:textColorHint="@color/book_muted"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/barcode_icon_text_safe"
+                android:textColor="@color/book_gray"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/book_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="92dp">
+
+        <!-- 검색 안내, 필터, 목록을 순서대로 담는 본문 영역이다. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/list_guide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="22dp"
+                android:text="@string/list_guide"
+                android:textColor="@color/book_ink"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/recommend_search_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="22dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="@string/book_recommend_keywords"
+                android:textColor="@color/book_ink"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- 자주 누를 만한 검색어를 가로로 모아 둔 영역이다. -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:overScrollMode="never"
+                android:paddingStart="22dp"
+                android:paddingEnd="22dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/keyword_android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/list_keyword_android"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/keyword_kotlin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/list_keyword_kotlin"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/keyword_cheap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/list_keyword_cheap"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/keyword_clean"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/list_keyword_clean"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="22dp"
+                android:text="@string/book_status_filter_title"
+                android:textColor="@color/book_ink"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- 상태 필터와 가격/이름 정렬 버튼을 같이 둔 영역이다. -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:overScrollMode="never"
+                android:paddingStart="22dp"
+                android:paddingEnd="22dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/status_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/logo_badge"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/status_all"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/status_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/status_new"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/status_used"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/status_used"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/sort_price_low"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/sort_price_low"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/sort_price_high"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/sort_price_high"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/sort_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/sort_title"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/status_marked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/status_marked"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/status_reserved"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:background="@drawable/panel_outline_round"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/status_reserved"
+                        android:textColor="@color/book_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="22dp"
+                android:text="@string/book_shortcut_title"
+                android:textColor="@color/book_ink"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- 도서 랭킹과 랜덤 추천은 검색어 입력 없이 바로 실행되는 바로가기다. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="22dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/shortcut_ranking_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/panel_soft_round"
+                    android:gravity="center"
+                    android:text="@string/ranking_icon_text_safe"
+                    android:textColor="@color/book_gray"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/shortcut_ranking"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/book_shortcut_ranking"
+                    android:textColor="@color/book_ink"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/shortcut_random_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/panel_soft_round"
+                    android:gravity="center"
+                    android:text="@string/new_book_icon_text"
+                    android:textColor="@color/book_gray"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/shortcut_random"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/book_shortcut_new"
+                    android:textColor="@color/book_ink"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="28dp"
+                android:background="@color/screen_bg"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingStart="22dp"
+                android:paddingEnd="22dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="54dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/book_category_tab"
+                    android:textColor="@color/book_ink"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="54dp"
+                    android:layout_marginStart="28dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/list_chip_major"
+                    android:textColor="@color/book_ink"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/screen_bg"
+                android:overScrollMode="never"
+                android:paddingStart="22dp"
+                android:paddingEnd="22dp"
+                android:scrollbars="none">
+
+                <!-- 분야별 칩을 눌러 같은 분야의 책만 볼 수 있다. -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="14dp">
+
+                    <TextView
+                        android:id="@+id/category_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/logo_badge"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_all"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/category_it"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_it"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/category_kotlin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_kotlin"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/category_android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_android"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/category_comic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_comic"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/category_novel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_novel"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/category_economy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_economy"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/category_world"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_world"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/category_genre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_genre"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/category_script"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/panel_soft_round"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/category_script"
+                        android:textColor="@color/book_ink"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- 필터링된 책 카드가 실제로 반복 표시되는 목록 자리다. -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/book_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/screen_bg"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="32dp"
+                tools:listitem="@layout/item_book" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/bottom_nav"
+        layout="@layout/bottom_nav_search" />
+</LinearLayout>

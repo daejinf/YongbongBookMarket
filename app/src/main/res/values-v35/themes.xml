@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Android 15 이상에서는 targetSdk가 높을 때 화면이 상태바 아래로 들어갈 수 있다.
+        XML Toolbar를 직접 쓰는 구조라 상태바와 Toolbar가 겹치지 않도록 edge-to-edge 강제 적용을 끈다.
+    -->
+    <style name="Theme.YongbongBookMarket" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/jnu_green</item>
+        <item name="colorPrimaryDark">@color/jnu_green_dark</item>
+        <item name="colorAccent">@color/jnu_green</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/jnu_green_dark</item>
+        <item name="android:navigationBarColor">@color/jnu_green_dark</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+</resources>

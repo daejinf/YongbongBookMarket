@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        상품 이미지 영역이나 안내 영역에 사용하는 밝은 회색 패널이다.
+        참고 화면의 넓고 깨끗한 검색창/책 표지 배경 느낌을 살리기 위해 색을 빼고 여백을 크게 보이게 했다.
+    -->
+    <solid android:color="@color/surface_green" />
+    <corners android:radius="18dp" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/book_line" />
+</shape>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 상세 화면 상단의 책 표지 영역에 쓰는 초록 배경이다. -->
+    <gradient
+        android:angle="270"
+        android:endColor="@color/detail_gradient_end"
+        android:startColor="@color/detail_gradient_start" />
+</shape>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".OrderActivity">
+
+    <!--
+        주문서 화면의 Toolbar이다.
+        배송정보 화면에서 넘어온 뒤 최종 확인을 하는 단계라 뒤로가기 버튼을 유지했다.
+    -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="1dp"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        app:theme="@style/ToolbarIconColor"
+        app:titleTextColor="@color/book_ink" />
+
+    <!--
+        배송정보와 주문 상품을 확인하는 영역이다.
+        ShippingActivity에서 받은 배송정보와 CartRepository에서 읽은 장바구니 상품을 한 화면에 보여 준다.
+    -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!--
+            주문서는 장바구니와 배송정보에서 넘어온 값을 한 번 더 확인하는 화면이다.
+            실제 결제 기능은 넣지 않고, 주문 완료 Dialog까지 보여 준다.
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pill_orange"
+                android:padding="13dp"
+                android:text="@string/order_notice"
+                android:textColor="@color/book_ink"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/panel_card_modern"
+                android:orientation="vertical"
+                android:padding="17dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order_shipping_info_title"
+                    android:textColor="@color/book_ink"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/shipping_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/book_ink"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/panel_card_modern"
+                android:orientation="vertical"
+                android:padding="17dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order_items_title"
+                    android:textColor="@color/book_ink"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/order_items_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="@color/book_ink"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/order_total_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/panel_warm"
+                android:gravity="right"
+                android:padding="16dp"
+                android:textColor="@color/book_price"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!--
+        주문 완료 Dialog를 띄우는 버튼이다.
+        이 버튼을 누르면 AlertDialog가 나오고, 확인하면 장바구니를 비우고 홈으로 돌아간다.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:padding="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/complete_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/order_complete_button"
+            android:textColor="@color/book_ink"
+            android:textStyle="bold"
+            app:backgroundTint="@color/campus_yellow"
+            app:cornerRadius="18dp" />
+    </LinearLayout>
+</LinearLayout>

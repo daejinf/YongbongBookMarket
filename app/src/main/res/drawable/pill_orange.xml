@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        배송 안내나 공지 문구에 쓰는 둥근 주황 배경이다.
+        초록색만 반복되면 화면이 단조로워 보여서 보조 강조색으로 사용했다.
+    -->
+    <solid android:color="@color/pill_orange_bg" />
+    <corners android:radius="999dp" />
+</shape>

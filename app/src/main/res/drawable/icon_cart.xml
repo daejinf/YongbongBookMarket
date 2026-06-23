@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 장바구니 메뉴에 표시할 간단한 벡터 아이콘이다. -->
+    <path
+        android:fillColor="@color/book_ink"
+        android:pathData="M7,18C5.9,18 5,18.9 5,20C5,21.1 5.9,22 7,22C8.1,22 9,21.1 9,20C9,18.9 8.1,18 7,18ZM17,18C15.9,18 15,18.9 15,20C15,21.1 15.9,22 17,22C18.1,22 19,21.1 19,20C19,18.9 18.1,18 17,18ZM7.2,14.5C6.45,14.5 5.81,14.09 5.48,13.48L2,6.2V4H0V2H3.25L4.2,4H21.7L18.35,12.1C18.05,12.84 17.33,13.32 16.53,13.32H8.1L7,15.3H19V17H7C5.9,17 5,16.1 5,15C5,14.65 5.09,14.32 5.25,14.04L6.05,12.6L3.1,6H5.35L7.75,11.32H16.15L18.35,6H5.1L7.2,14.5Z" />
+</vector>

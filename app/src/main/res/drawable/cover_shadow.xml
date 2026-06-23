@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        책 표지를 흰 배경 위에 올려서 더 또렷하게 보이게 한다.
+        목록과 장바구니에서 표지가 배경색과 섞이지 않도록 만든 보조 배경이다.
+    -->
+    <solid android:color="@color/white" />
+    <corners android:radius="14dp" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/book_line" />
+</shape>

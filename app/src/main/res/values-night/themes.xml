@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 다크모드에서도 앱 화면 톤이 달라지지 않도록 같은 Light 테마를 사용한다. -->
+    <style name="Theme.YongbongBookMarket" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/jnu_green</item>
+        <item name="colorPrimaryDark">@color/jnu_green_dark</item>
+        <item name="colorAccent">@color/jnu_green</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/jnu_green_dark</item>
+    </style>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!--
+        밀리의서재 참고 화면처럼 첫인상이 강한 검정 원형 배지로 바꾸었다.
+        안쪽 로고나 글자는 각 화면 XML에서 따로 넣어 재사용한다.
+    -->
+    <solid android:color="@color/jnu_green_dark" />
+</shape>

@@ -1,0 +1,15 @@
+.gradle/
+build/
+app/build/
+local.properties
+.idea/
+*.iml
+_reference_zips/
+.kotlin/
+outputs/
+_review_instruction/
+*.zip
+*.apk
+*.aab
+모바일응용소프트웨어_*/
+*221896*/

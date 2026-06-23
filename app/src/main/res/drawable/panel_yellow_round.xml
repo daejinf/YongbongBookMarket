@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 구독 안내와 강조 버튼에 쓰는 노란색 둥근 배경이다. -->
+    <solid android:color="@color/campus_yellow" />
+    <corners android:radius="18dp" />
+</shape>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--
+        여러 화면에서 같이 사용하는 기본 Toolbar 옵션 메뉴이다.
+        Toolbar 오른쪽 옵션 메뉴에 들어가는 항목이다.
+        각 Activity의 onOptionsItemSelected에서 itemId별 동작을 처리한다.
+    -->
+    <!-- 앱의 첫 화면으로 돌아갈 때 사용한다. -->
+    <item
+        android:id="@+id/menu_home"
+        android:title="@string/menu_home"
+        app:showAsAction="never" />
+
+    <!-- 전체 도서 목록 화면으로 이동한다. -->
+    <item
+        android:id="@+id/menu_book_list"
+        android:icon="@drawable/icon_search"
+        android:title="@string/menu_book_list"
+        app:showAsAction="never" />
+
+    <!-- 장바구니는 자주 쓰는 기능이라 공간이 있으면 아이콘으로 보여 준다. -->
+    <item
+        android:id="@+id/menu_cart"
+        android:icon="@drawable/icon_cart"
+        android:title="@string/menu_cart"
+        app:showAsAction="ifRoom" />
+
+    <!-- 로그인 상태와 최근 본 상품을 확인하는 내서재 화면으로 이동한다. -->
+    <item
+        android:id="@+id/menu_my_page"
+        android:icon="@drawable/icon_myinfo"
+        android:title="@string/menu_my_page"
+        app:showAsAction="never" />
+
+    <!-- 앱 밖의 참고 페이지는 Activity에서 브라우저 Intent로 연다. -->
+    <item
+        android:id="@+id/menu_jnu_site"
+        android:icon="@drawable/icon_setting"
+        android:title="@string/menu_jnu_site"
+        app:showAsAction="never" />
+
+    <!-- 외부 도서 베스트 페이지를 확인하는 메뉴이다. -->
+    <item
+        android:id="@+id/menu_aladin_best"
+        android:icon="@drawable/icon_search"
+        android:title="@string/menu_aladin_best"
+        app:showAsAction="never" />
+
+    <!-- 앱 설명을 AlertDialog로 보여 줄 때 사용한다. -->
+    <item
+        android:id="@+id/menu_app_info"
+        android:icon="@drawable/icon_dialog"
+        android:title="@string/menu_app_info"
+        app:showAsAction="never" />
+
+</menu>

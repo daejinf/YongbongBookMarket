@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        앱 기본 테마와 Toolbar 색상을 정하는 파일이다.
+        NoActionBar 테마를 사용한 이유는 각 화면 XML에 직접 Toolbar를 넣고,
+        Kotlin 코드에서 setSupportActionBar로 연결하기 위해서이다.
+    -->
+    <style name="Theme.YongbongBookMarket" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/jnu_green</item>
+        <item name="colorPrimaryDark">@color/jnu_green_dark</item>
+        <item name="colorAccent">@color/campus_yellow</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
+
+    <style name="ToolbarIconColor" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ToolbarPopupTheme" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

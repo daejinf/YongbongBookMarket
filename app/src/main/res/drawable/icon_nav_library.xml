@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 하단 바에서 내서재 화면을 나타내는 아이콘이다. -->
+    <path
+        android:fillColor="@color/book_gray"
+        android:pathData="M5,3h12c1.1,0 2,0.9 2,2v16l-7,-3 -7,3V5c0,-1.1 0.9,-2 2,-2zM7,5v12.9l5,-2.1 5,2.1V5H7zM9,8h6v2H9V8zM9,12h6v2H9v-2z" />
+</vector>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        합계나 배송 안내처럼 살짝 강조할 부분에 쓰는 따뜻한 색 배경이다.
+        가격이나 주문 관련 영역이 눈에 들어오도록 초록색과 다른 따뜻한 색을 사용했다.
+    -->
+    <solid android:color="@color/surface_warm" />
+    <corners android:radius="18dp" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/warm_stroke" />
+</shape>

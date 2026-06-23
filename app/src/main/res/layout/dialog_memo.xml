@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingStart="2dp"
+    android:paddingTop="4dp"
+    android:paddingEnd="2dp">
+
+    <!-- 일반 메모와 책별 메모를 같은 모양으로 다루는 Dialog 내용이다. -->
+    <!-- 위쪽 배너는 Dialog가 갑자기 뜨는 느낌을 줄이기 위해 넣은 안내 영역이다. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@drawable/panel_yellow_round"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            android:src="@drawable/brand_app_icon" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/memo_dialog_title"
+                android:textColor="@color/book_ink"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/memo_dialog_subtitle"
+                android:textColor="@color/book_gray"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/memo_saved_title"
+        android:textColor="@color/book_ink"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- 저장된 메모 행은 Activity에서 코드로 만들어 이 안에 추가한다. -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/panel_feed_card"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/memo_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/memo_new_title"
+        android:textColor="@color/book_ink"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- 새 메모를 입력하는 칸이다. 여러 줄 문장을 적을 수 있게 했다. -->
+    <EditText
+        android:id="@+id/memo_edit"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/panel_outline_round"
+        android:gravity="top|start"
+        android:hint="@string/memo_hint_example"
+        android:inputType="textMultiLine"
+        android:padding="14dp"
+        android:textColor="@color/book_ink"
+        android:textColorHint="@color/book_muted"
+        android:textSize="15sp" />
+</LinearLayout>

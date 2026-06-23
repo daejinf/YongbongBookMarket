@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/campus_yellow"
+    tools:context=".SplashActivity">
+
+    <!--
+        전남대 로고를 가운데 크게 보여 주는 영역이다.
+        초록 배경에 로고가 묻히지 않도록 ImageView 뒤에 흰색 원형 배지를 넣었다.
+        이 화면은 2.5초 뒤 MainActivity로 자동 이동한다.
+    -->
+    <ImageView
+        android:id="@+id/splash_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/app_name"
+        android:elevation="6dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/brand_app_icon"
+        app:layout_constraintBottom_toTopOf="@+id/splash_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <!--
+        앱 이름을 표시한다.
+        strings.xml의 app_name 값을 사용해 문자열을 분리했다.
+    -->
+    <TextView
+        android:id="@+id/splash_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/app_name"
+        android:textColor="@color/book_ink"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/splash_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/splash_logo" />
+
+    <!--
+        앱 주제를 짧게 보여 주는 설명 문구이다.
+        중고 도서와 신간 도서를 함께 다루는 용봉문고의 방향을 첫 화면에서 알 수 있게 했다.
+    -->
+    <TextView
+        android:id="@+id/splash_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/splash_subtitle"
+        android:textColor="@color/book_gray"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/splash_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
